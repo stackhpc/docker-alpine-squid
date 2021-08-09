@@ -3,8 +3,10 @@
 CFG=/etc/squid/squid.conf
 
 if ! test -f "$CFG"; then
-   echo "Config file /etc/squid/squid.conf does not exist, using defaults."
-   squid -N -f /defaults/squid/squid.conf
+    echo "Config file /etc/squid/squid.conf does not exist, using defaults."
+    squid -z
+    squid -N -f /defaults/squid/squid.conf
 else
-   squid -N -f /etc/squid/squid.conf
+    squid -z
+    squid -N -f /etc/squid/squid.conf
 fi
